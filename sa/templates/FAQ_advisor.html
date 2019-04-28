@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/all_style.css">
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+		<title>FAQs - SmartAdvising</title>
+	</head>
+	
+	<body>
+		<div class="navbar">
+			<nav>
+				<a href="queue.html">Waiting Room</a>
+				<a href="faq.html">FAQ</a>
+				<a href="signed_out.html">Sign Out</a>
+			</nav>
+		</div>
+		
+		<h1> Frequently Asked Questions </h1>
+		<div class="faq">
+			<ol id="list">
+				<li> Question </li>
+				<p> Answer </p>
+			</ol>
+		</div>	
+			
+		<div class="addFAQ">	
+			<h3> Add a new question to the FAQ</h3>
+			<div class="box">
+				<label>Question</label>
+				<input type="text" id="Question">
+				<button onclick="addQ()">Add</button>
+			</div>
+			
+			<div class="box">
+				<label>Answer </label>
+				<input type="text" id="Answer">
+				<button onclick="addA()">Add</button>
+			</div>
+		</div>	
+		
+		<script>
+			function addQ()
+			{
+				var Question = document.getElementById('Question').value,
+					listNode = document.getElementById('list'),
+					liNode = document.createElement("LI"),
+					txtNode = document.createTextNode(Question);
+				liNode.appendChild(txtNode);
+				listNode.appendChild(liNode);
+			}
+				
+			function addA()
+			{
+				var Answer = document.getElementById('Answer').value,
+					listNode = document.getElementById('list'),
+					liNode = document.createElement("P"),
+					txtNode = document.createTextNode(Answer);
+				liNode.appendChild(txtNode);
+				listNode.appendChild(liNode);
+			}
+		</script>
+		<form method="POST" action="/">
+		{{ form.csrf_token }}
+		{{ form.question.label }} {{ form.question(size=100) }}
+		{{ form.answer.label }} {{ form.answer(size=200) }}
+		<input type="submit" value="Go">
+</form>
+		
+	</body>

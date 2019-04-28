@@ -1,0 +1,81 @@
+/* CSS for the SmartAdvising Login Page */
+/* Author: Shannon Hatcher */
+
+/* Background */
+body {
+	background-image: url("background.jpg");
+	background-size: 100vw;
+}
+
+/* SmartAdvising header */
+h1 {
+	text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+/* Border for form */
+form {
+	border: 3px solid #f1f1f1;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 6em;
+	background-color: white;
+}
+
+/* alternatively input[type=text], input[type=password] */
+select {
+	width: 100%;
+	padding: 1em 2em;
+	margin: 1em 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+
+/* Submit Button */
+button {
+	background-color: #782f40;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	width: 100%;
+}
+
+/* Submit Button Hover */
+button:hover {
+	opacity: 0.8;
+}
+
+
+.student_advisor {
+	border: 3px solid #f1f1f1;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 6em;
+	background-color: white;
+}
+
+
+/* Login Form Elements */
+.login {
+	padding: 16px;
+}
+
+/* Drop-Down Boxes */
+.login select {
+	display: block;
+	padding: 0.5em;
+	margin-bottom: 1em;
+}
+
+/* Drop-Down Box Labels */
+.login label {
+	margin-top: 1em;
+}

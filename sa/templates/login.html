@@ -1,0 +1,80 @@
+<!-- SmartAdvising Login Page 
+	Author: Shannon Hatcher -->
+	
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/all_style.css">
+		<link rel="stylesheet" type="text/css" href="../static/css/login_style.css">
+		<title>SmartAdvising</title>
+	</head>
+	
+	<body>
+		<div class="background">
+			<div class="navbar">
+				<nav>
+					<a href="faq.html">FAQ</a>
+				</nav>
+			</div>
+			
+		<!-- Login Box -->
+		<form method="post">
+			{{ login_form.hidden_tag() }}
+			
+			<div class="login">
+				<h1> SmartAdvising </h1>
+				
+				<label for="college"><b>College</b></label>
+				{{ login_form.college(id="college-select") }}
+				
+				<label for="major"><b>Major</b></label>
+				{{ login_form.major(id="major-select") }}
+				
+				<label for="degree"><b>Degree</b></label>
+				{{ login_form.division(id="degree-select") }}
+
+				{{ login_form.submit(type='hidden') }}
+                {% if o365_sign_in_url and not session['user_email'] %}
+                <p>You must log in using your student Outlook account.</p>
+                <button class="btn btn-primary" onclick="window.location.href='{{ o365_sign_in_url }}'">
+                    <span class="label">Connect to Office 365</span>
+                </button>
+                {% endif %}
+
+                {% if session['user_email'] %}
+                {%  endif %}
+            </div>
+		</form>
+        </div>	
+	</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+    let API_URL = "/search/api"
+    
+    $(document).ready(function() {
+        $('#college-select').prepend(
+            $("<option/>", {name: "disabled", value: "", text: "College", selected: true, disabled: true})
+        );
+        $('#major-select').prepend(
+            $("<option/>", {name: "disabled", value: "", text: "Major", selected: true, disabled: true})
+        );
+    });
+    
+    $('#college-select').on('change', function(){
+        let major_select = $('#major-select');
+        let selected_college = $('#college-select').children('option').filter(':selected');
+        
+        major_select.find('option').remove().end(); // remove all <option> from <select>
+        
+        $.getJSON(API_URL + '/majors', {"college_id": selected_college.val()}, function(data) {
+            $.each(data, function(_, major) {
+                major_select.append(
+                    $('<option/>', {value: major.id, text: major.name})
+                );
+            });
+        });
+    });
+    </script>
+</html>

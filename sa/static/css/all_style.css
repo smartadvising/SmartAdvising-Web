@@ -1,0 +1,40 @@
+/* This file is included in all of the HTML pages to avoid writing this same code in every CSS file */
+/* Webfont */
+@font-face {
+	font-family: 'AleoReg';
+	src: url('Aleo-Font/Webfont Kit/Regular/aleo-regular-webfont.ttf');
+	font-style: normal;
+}
+
+/* Consistent Style Rules */
+* {
+	font-family: 'AleoReg', 'Calibri', serif;
+	letter-spacing: 1px;
+}
+
+/* Navigation Bar */
+.navbar nav{
+	width: 102%;
+    margin-top: -9px;
+	margin-left: -9px;
+	margin-right: auto;
+	overflow: hidden;
+	border-top: 1px solid #f0f0f0;
+	border-bottom: 1px solid #f0f0f0;
+	background-color: #782f40;
+}
+
+.navbar nav a {
+	font-size: 12px;
+	font-weight: 400;
+	display: inline-block;
+	color: white;
+	text-align: center;
+	padding: 12.5px 13.5px;
+	text-decoration: none;
+}
+
+.navbar nav a:hover {
+	background-color: #F0F0F0;
+	color: black;
+}

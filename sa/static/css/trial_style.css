@@ -1,0 +1,45 @@
+/* CSS for the SmartAdvising Login Page */
+/* Author: Shannon Hatcher */
+
+h1, h3 {
+	text-align:center;
+}
+
+/* Border for form */
+.container {
+	border: 3px solid #f1f1f1;
+	width:80%;
+	margin-top: 3em;
+}
+/*
+#left{
+	float: right;
+	margin-right: 1em;
+}
+
+#right{
+	float: left;
+	margin-left: 1em;
+}
+*/
+/* alternatively input[type=text], input[type=password] */
+select {
+	width: 100%;
+	padding: 1em 2em;
+	margin: 1em 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+/* Drop-Down Boxes */
+.login select {
+	display: block;
+	padding: 0.5em;
+	margin-bottom: 1em;
+}
+
+/* Drop-Down Box Labels */
+.login label {
+	margin-top: 1em;
+}
